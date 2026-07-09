@@ -1,0 +1,10 @@
+<library path="mechabot_firmware">
+    <class name="mechabot_firmware/MechabotInterface"
+      type="mechabot_firmware::MechabotInterface"
+      base_class_type="hardware_interface::SystemInterface"
+    >
+      <description>
+        Mechabot Hardware Interface
+      </description>
+    </class>
+</library>

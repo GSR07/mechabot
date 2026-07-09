@@ -16,9 +16,9 @@ __pycache__/
 .DS_Store
 
 # Gazebo/Ignition models (too large)
-src/astranav_description/models/
-src/astranav_description/photos/
-src/astranav_description/worlds/
+src/mechabot_description/models/
+src/mechabot_description/photos/
+src/mechabot_description/worlds/
 
 # Large files
 *.dae

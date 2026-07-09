@@ -1,6 +1,6 @@
-# AstraAMR - Autonomous Mobile Robot Navigation Platform
+# MechaBot - Autonomous Mobile Robot Navigation Platform
 
-A comprehensive ROS 2-based autonomous mobile robot platform with advanced navigation, mapping, localization, and control capabilities. AstraAMR (Astra Autonomous Mobile Robot) is designed for research and development of autonomous navigation systems.
+A comprehensive ROS 2-based autonomous mobile robot platform with advanced navigation, mapping, localization, and control capabilities. MechaBot is designed for research and development of autonomous navigation systems.
 
 ## 📋 Table of Contents
 
@@ -18,7 +18,7 @@ A comprehensive ROS 2-based autonomous mobile robot platform with advanced navig
 
 ## 🤖 Overview
 
-AstraAMR is a complete ROS 2 ecosystem for autonomous mobile robot navigation and control. It includes:
+MechaBot is a complete ROS 2 ecosystem for autonomous mobile robot navigation and control. It includes:
 
 - **URDF Description**: Complete robot model with sensors and actuators
 - **Navigation Stack**: Path planning and autonomous navigation
@@ -44,15 +44,15 @@ AstraAMR is a complete ROS 2 ecosystem for autonomous mobile robot navigation an
 ## 📁 Project Structure
 
 ```
-astraNav_ws/
+mechabot_ws/
 ├── src/
-│   ├── astranav_bringup/          # Launch configurations and startup scripts
-│   ├── astranav_controller/       # Motion and joystick control
-│   ├── astranav_description/      # URDF and robot model description
-│   ├── astranav_localization/     # AMCL localization setup
-│   ├── astranav_mapping/          # SLAM Toolbox configuration
-│   ├── astranav_navigation/       # Nav2 navigation stack
-│   └── astranav_scripts/          # Autonomous behavior scripts
+│   ├── mechabot_bringup/          # Launch configurations and startup scripts
+│   ├── mechabot_controller/       # Motion and joystick control
+│   ├── mechabot_description/      # URDF and robot model description
+│   ├── mechabot_localization/     # AMCL localization setup
+│   ├── mechabot_mapping/          # SLAM Toolbox configuration
+│   ├── mechabot_navigation/       # Nav2 navigation stack
+│   └── mechabot_scripts/          # Autonomous behavior scripts
 ├── build/                          # Build artifacts (generated)
 ├── install/                        # Installation artifacts (generated)
 └── README.md                       # This file
@@ -92,12 +92,12 @@ sudo apt install python3-colcon-common-extensions
 
 ```bash
 # Create workspace
-mkdir -p ~/astraNav_ws/src
-cd ~/astraNav_ws
+mkdir -p ~/mechabot_ws/src
+cd ~/mechabot_ws
 
 # Clone repository (if not already cloned)
 cd src
-git clone https://github.com/GSR07/AstraAMR.git .
+git clone https://github.com/GSR07/mechabot.git .
 cd ..
 ```
 
@@ -120,7 +120,7 @@ source /opt/ros/humble/setup.bash
 colcon build
 
 # Build specific package
-colcon build --packages-select astranav_description
+colcon build --packages-select mechabot_description
 
 # Build with verbose output (for debugging)
 colcon build --event-handlers console_direct+
@@ -133,7 +133,7 @@ colcon build --event-handlers console_direct+
 source install/setup.bash
 
 # Add to .bashrc for automatic sourcing
-echo "source ~/astraNav_ws/install/setup.bash" >> ~/.bashrc
+echo "source ~/mechabot_ws/install/setup.bash" >> ~/.bashrc
 ```
 
 ## 🚀 Quick Start
@@ -142,20 +142,20 @@ echo "source ~/astraNav_ws/install/setup.bash" >> ~/.bashrc
 
 ```bash
 # Terminal 1: Launch Gazebo with robot
-ros2 launch astranav_bringup simulated_robot.launch.py
+ros2 launch mechabot_bringup simulated_robot.launch.py
 
 # Terminal 2: Launch navigation
-ros2 launch astranav_navigation navigation.launch.py
+ros2 launch mechabot_navigation navigation.launch.py
 
 # Terminal 3: Launch RViz with pre-configured layout
-rviz2 -d install/astranav_description/share/astranav_description/rviz/display.rviz
+rviz2 -d install/mechabot_description/share/mechabot_description/rviz/display.rviz
 ```
 
 ### Teleoperation with Joystick
 
 ```bash
 # Launch joystick controller
-ros2 launch astranav_controller joystick.launch.py
+ros2 launch mechabot_controller joystick.launch.py
 ```
 
 ### Autonomous Navigation
@@ -169,7 +169,7 @@ ros2 action send_goal nav2_msgs/action/NavigateToPose navigate_to_pose "{pose: {
 
 ## 📚 Package Documentation
 
-### astranav_bringup
+### mechabot_bringup
 Startup and configuration package for launching robot systems.
 
 **Launchfiles:**
@@ -180,7 +180,7 @@ Startup and configuration package for launching robot systems.
 - Robot parameters and tf settings
 - Sensor configurations
 
-### astranav_controller
+### mechabot_controller
 Motion control and teleoperation package.
 
 **Nodes:**
@@ -188,26 +188,26 @@ Motion control and teleoperation package.
 - Twist multiplexer for command arbitration
 
 **Configuration Files:**
-- `astranav_controllers.yaml` - Controller configurations
+- `mechabot_controllers.yaml` - Controller configurations
 - `joy_teleop.yaml` - Joystick button mappings
 - `twist_mux_*.yaml` - Command priority settings
 
-### astranav_description
+### mechabot_description
 Robot model and physical description package.
 
 **Contents:**
 - **URDF/Xacro Files**: Complete robot model definition
-  - `astranav.urdf.xacro` - Main robot model
-  - `astranav_base.xacro` - Base platform definition
-  - `astranav_sensors.xacro` - Sensor configurations
-  - `astranav_ros2control.xacro` - Hardware interface
-  - `astranav_gazebo.xacro` - Gazebo plugins and physics
+  - `mechabot.urdf.xacro` - Main robot model
+  - `mechabot_base.xacro` - Base platform definition
+  - `mechabot_sensors.xacro` - Sensor configurations
+  - `mechabot_ros2control.xacro` - Hardware interface
+  - `mechabot_gazebo.xacro` - Gazebo plugins and physics
 
 - **Meshes**: STL geometry for visualization and collision
 - **RViz**: Pre-configured visualization layouts
 - **Examples**: Template URDF for reference
 
-### astranav_localization
+### mechabot_localization
 Localization package using AMCL algorithm.
 
 **Configuration:**
@@ -218,10 +218,10 @@ Localization package using AMCL algorithm.
 
 **Usage:**
 ```bash
-ros2 launch astranav_localization global_localization.launch.py
+ros2 launch mechabot_localization global_localization.launch.py
 ```
 
-### astranav_mapping
+### mechabot_mapping
 SLAM-based mapping package using SLAM Toolbox.
 
 **Configuration:**
@@ -236,10 +236,10 @@ Pre-configured maps for different environments:
 - `maps/small_house/` - Small house environment
 
 ```bash
-ros2 launch astranav_mapping slam.launch.py
+ros2 launch mechabot_mapping slam.launch.py
 ```
 
-### astranav_navigation
+### mechabot_navigation
 Nav2-based navigation stack with behavior trees.
 
 **Configuration:**
@@ -257,10 +257,10 @@ Nav2-based navigation stack with behavior trees.
 - `navigation.launch.py` - Launch complete navigation stack
 
 ```bash
-ros2 launch astranav_navigation navigation.launch.py
+ros2 launch mechabot_navigation navigation.launch.py
 ```
 
-### astranav_scripts
+### mechabot_scripts
 Autonomous behavior and utility scripts.
 
 **Scripts:**
@@ -278,7 +278,7 @@ Autonomous behavior and utility scripts.
 
 ### Robot Parameters
 
-Edit `astranav_description/urdf/astranav_base.xacro`:
+Edit `mechabot_description/urdf/mechabot_base.xacro`:
 
 ```xml
 <!-- Robot dimensions -->
@@ -290,7 +290,7 @@ Edit `astranav_description/urdf/astranav_base.xacro`:
 
 ### Navigation Parameters
 
-Edit `astranav_navigation/config/bt_navigator.yaml`:
+Edit `mechabot_navigation/config/bt_navigator.yaml`:
 
 ```yaml
 bt_navigator:
@@ -302,7 +302,7 @@ bt_navigator:
 
 ### Controller Parameters
 
-Edit `astranav_controller/config/astranav_controllers.yaml`:
+Edit `mechabot_controller/config/mechabot_controllers.yaml`:
 
 ```yaml
 controller_server:
@@ -319,26 +319,26 @@ controller_server:
 
 ```bash
 # Terminal 1: Start simulation
-ros2 launch astranav_bringup simulated_robot.launch.py
+ros2 launch mechabot_bringup simulated_robot.launch.py
 
 # Terminal 2: Start navigation
-ros2 launch astranav_navigation navigation.launch.py
+ros2 launch mechabot_navigation navigation.launch.py
 
 # Terminal 3: Set a navigation goal
-ros2 launch astranav_scripts waypoint_following.py
+ros2 launch mechabot_scripts waypoint_following.py
 ```
 
 ### Example 2: Mapping a New Environment
 
 ```bash
 # Terminal 1: Start Gazebo with robot
-ros2 launch astranav_bringup simulated_robot.launch.py
+ros2 launch mechabot_bringup simulated_robot.launch.py
 
 # Terminal 2: Start SLAM
-ros2 launch astranav_mapping slam.launch.py
+ros2 launch mechabot_mapping slam.launch.py
 
 # Terminal 3: Teleoperate robot to map area
-ros2 launch astranav_controller joystick.launch.py
+ros2 launch mechabot_controller joystick.launch.py
 
 # Terminal 4: Save map
 ros2 service call /slam_toolbox/save_map slam_toolbox/srv/SerializePoseGraph "filename: maps/my_map"
@@ -348,16 +348,16 @@ ros2 service call /slam_toolbox/save_map slam_toolbox/srv/SerializePoseGraph "fi
 
 ```bash
 # Launch all necessary components
-ros2 launch astranav_bringup simulated_robot.launch.py
-ros2 launch astranav_navigation navigation.launch.py
+ros2 launch mechabot_bringup simulated_robot.launch.py
+ros2 launch mechabot_navigation navigation.launch.py
 
 # Run docking script
-ros2 run astranav_scripts auto_docking_with_battery
+ros2 run mechabot_scripts auto_docking_with_battery
 ```
 
 ## 🔗 ROS 2 Ecosystem Integration
 
-AstraAMR integrates with key ROS 2 packages:
+MechaBot integrates with key ROS 2 packages:
 
 - **Nav2**: Navigation library for autonomous navigation
 - **SLAM Toolbox**: Graph-based SLAM
@@ -462,4 +462,4 @@ For issues, questions, or suggestions:
 
 **Maintained by**: GSR07
 
-**Repository**: [GitHub - AstraAMR](https://github.com/GSR07/AstraAMR)
+**Repository**: [GitHub - MechaBot](https://github.com/GSR07/mechabot)

@@ -1,0 +1,51 @@
+{
+    "q_table": {
+        "x=-3.0|y=-4.5|front=medium|bad=0|battery=ok": {
+            "NAVIGATE": 3.5,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": 0.0
+        },
+        "x=-1.5|y=-4.5|front=medium|bad=0|battery=ok": {
+            "NAVIGATE": 7.25375,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": 0.0
+        },
+        "x=-0.5|y=-4.5|front=clear|bad=0|battery=ok": {
+            "NAVIGATE": 7.25375,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": 0.0
+        },
+        "x=2.5|y=-4.5|front=clear|bad=0|battery=ok": {
+            "NAVIGATE": 7.25375,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": 0.0
+        },
+        "x=3.5|y=-4.5|front=clear|bad=0|battery=ok": {
+            "NAVIGATE": 7.25375,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": 0.0
+        },
+        "x=5.5|y=-4.5|front=clear|bad=0|battery=ok": {
+            "NAVIGATE": 5.775,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": -0.7
+        },
+        "x=6.5|y=-4.5|front=clear|bad=0|battery=ok": {
+            "NAVIGATE": 7.25375,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": 0.0
+        },
+        "x=8.5|y=-4.0|front=clear|bad=0|battery=ok": {
+            "NAVIGATE": 0.0,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": 0.0
+        },
+        "x=-3.0|y=-4.5|front=clear|bad=0|battery=ok": {
+            "NAVIGATE": 5.775,
+            "CLEAR_AND_NAVIGATE": 0.0,
+            "SKIP": 0.0
+        }
+    },
+    "bad_zones": [],
+    "updated_at": 1782383704.2114139
+}
